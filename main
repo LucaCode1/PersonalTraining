@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        <link rel = "stylesheet" href="style.css"></link>
+        <style>
+        .input{
+            font-size: 20px;
+            font-weight:400;
+            width: 30vw;
+            height: 8vh;
+            border:1px solid teal;
+            border-radius: 5px;
+            position:relative;
+            left:60vw;
+            top:30vh;
+        }
+
+        body{
+            background: lightgray;
+        }
+
+        h1{
+            font-weight: 600;
+            font-size: 65px;
+            font-family: sans-serif;
+            color: teal;
+            position:absolute;
+            top: 25vh;
+            left: 5vw;
+            float:left;
+        }
+
+        h2{
+            font-weight: 400;
+            font-size: 40px;
+            font-family: sans-serif;
+            color: black;
+            position:absolute;
+            top: 37vh;
+            left: 5vw;
+            float:left;
+        }
+        
+        .btn{
+            font-size: 20px;
+            font-weight: 600;
+            color:white;
+            width: 30vw;
+            height: 8vh;
+            background: teal;
+            border:1px solid teal;
+            border-radius: 5px;
+            position:relative;
+            left:60vw;
+            top:30vh;
+        }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="title">GamePilot</h1>
+        <h2 class="title">Stream games and view results</h2>
+    <form>
+        <div id = container>
+        <input class="input" type="text" id="username" placeholder="  Username or E-Mail">
+        <br><br>
+        <input class="input" type="password" id="password" placeholder="  Password">
+        <br><br>
+        <button class="btn" type="button" onclick="getInfo()">Log In</button>
+        </div>
+    </form>
+    </body>
+    <script src="script.js" charset="utf-8"></script>
+    <script>
+        var objPeople = [
+            {
+                username : "Luca_Schiemann",
+                password : "64969844"
+            }
+        ]
+        function getInfo() {
+            var username = document.getElementByID('username').value
+            var password = document.getElementByID('password').value
+
+            for (var i = 0 ; i < objPeople.length ; i++){
+                if (username == objPeople[i].username && password == objPeople[i].password){
+                    console.log(username + "is logged in") 
+                    window.location.href = 'http://www.google.com';
+                    BroadcastChannel(1)
+                    return
+                }
+            }
+            console.log('incorrect username or password')
+            
+        }
+    </script>
+</html>
